@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 namespace tienlai
 {
@@ -9,6 +9,7 @@ namespace tienlai
             double money = 1.0;
             int month = 1;
             double intersetRate = 1.0;
+            double kq;
             Console.OutputEncoding = Encoding.Unicode;
             Console.WriteLine("Nhập số tiền gửi: ");
             money = Double.Parse(Console.ReadLine());
@@ -16,12 +17,16 @@ namespace tienlai
             month = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Nhập lãi suất: ");
             intersetRate = Double.Parse(Console.ReadLine());
+            kq = lai(money,month,intersetRate);
+            Console.WriteLine("Lãi suất nhận được: " + kq);
+        }
+        static double lai(double tien, int thang, double tile)
+        {
             double totalInterset = 0;
-            for (int i = 0; i < month; i++)
+            for (int i = 0; i < thang; i++)
             {
-                totalInterset = money * (intersetRate / 100) / 12 * 3;
-            }
-            Console.WriteLine("Lãi suất nhận được: " + totalInterset);
+                totalInterset = tien * (tile / 100) / 12 * 3;
+            } return totalInterset;
         }
     }
 }
